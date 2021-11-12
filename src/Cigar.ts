@@ -6,7 +6,8 @@ export default class Cigar extends TaxItem {
         super("Cigar", description, price);
     }
     
-    public getTax(): number {
+    public getTax(date: Date): number {
+        if(date.getMonth() === 0) return 0.1; 
         return 0.2;
     }
 

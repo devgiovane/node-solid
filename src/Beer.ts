@@ -6,7 +6,7 @@ export default class Beer extends TaxItem {
         super("Beer", description, price);
     }
     
-    public getTax(): number {
+    public getTax(date: Date): number {
         return 0.1;
     }
 

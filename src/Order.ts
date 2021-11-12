@@ -19,16 +19,16 @@ export default class Order {
         return this.items.reduce((acc: number, item: Item) => acc + item.price, 0);
     }
 
-    public getTaxes(): number {
+    public getTaxes(date: Date): number {
         return this.items.reduce((acc: number, item: Item) => {
             if(item instanceof TaxItem) 
-                return acc += item.calculateTaxes();
+                return acc += item.calculateTaxes(date);
             return acc;
         }, 0);
     }
 
-    public getTotal(): number {
-        return this.getSubtotal() + this.getTaxes();
+    public getTotal(date: Date): number {
+        return this.getSubtotal() + this.getTaxes(date);
     }
 
 }
