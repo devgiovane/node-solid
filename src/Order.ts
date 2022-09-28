@@ -21,8 +21,8 @@ export default class Order {
 
     public getTaxes(date: Date): number {
         return this.items.reduce((acc: number, item: Item) => {
-            if(item instanceof TaxItem) 
-                return acc += item.calculateTaxes(date);
+            if (item instanceof TaxItem)
+                return acc + item.calculateTaxes(date);
             return acc;
         }, 0);
     }
